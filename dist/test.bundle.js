@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkwebpack_learn=self.webpackChunkwebpack_learn||[]).push([[255],{179:(e,n,t)=>{t.r(n),t.d(n,{default:()=>a});var l=t(540);const a=function(){return l.createElement("div",null,l.createElement("h1",null,"Test Component"))}}}]);
+//# sourceMappingURL=test.bundle.js.map
