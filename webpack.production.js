@@ -8,9 +8,10 @@
 // Import required Node.js modules and webpack plugins
 const path = require("path"); // Node.js path utility for handling file paths
 const HtmlWebpackPlugin = require("html-webpack-plugin"); // Generates HTML files
-const TerserPlugin = require("terser-webpack-plugin"); // Minifies JavaScript code
+// const TerserPlugin = require("terser-webpack-plugin"); // Minifies JavaScript code
 const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // Extracts CSS into separate files
 const { DefinePlugin } = require("webpack"); // Defines global constants
+const EsbuildPlugin = require("esbuild-loader").EsbuildPlugin; // Use esbuild for minification
 
 // Export the webpack configuration object
 module.exports = {
@@ -110,8 +111,12 @@ module.exports = {
 
     // Minification configuration
     minimizer: [
-      new TerserPlugin({
-        parallel: true, // Use multiple CPU cores for faster minification
+      // new TerserPlugin({
+      //   parallel: true, // Use multiple CPU cores for faster minification
+      // }),
+      new EsbuildPlugin({
+        target: "es2015", // or your desired target
+        css: true,        // Enable CSS minification
       }),
     ],
 
